@@ -13,6 +13,7 @@
 		<div class="space"></div>
 		<h3>สูตรคูณแม่ {{number}}</h3>
 		<h4 v-for="i in r">{{number}} * {{i}} = {{mul(i)}}</h4>
+		<h3>sum {{sum}}</h3>
 	</div>
 
 	<script>
@@ -31,38 +32,12 @@
 				r: function(){
 					return parseInt(this.row)
 				},
-				x2: function(){
-					return this.number*2
-				},
-				x3: function(){
-					return this.number*3
-				},
-				x4: function(){
-					return this.number*4
-				},
-				x5: function(){
-					return this.number*5
-				},
-				x6: function(){
-					return this.number*6
-				},
-				x7: function(){
-					return this.number*7
-					},
-				x8: function(){
-					return this.number*8
-				},
-				x9: function(){
-					return this.number*9
-				},
-				x10: function(){
-					return this.number*10
-				},
-				x11: function(){
-					return this.number*11
-				},
-				x12: function(){
-					return this.number*12
+				sum: function() {
+					let sum = 0
+					for (var i = 1; i <= this.r; i++) {
+						sum = sum + (this.mul(i))
+					}
+					return sum
 				},
 			}
 		})

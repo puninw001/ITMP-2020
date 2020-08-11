@@ -9,16 +9,18 @@
 <body class="paper">
 	<div id="app">
 		<input type="number" v-model="number">
+		<input type="number" v-model="row">
 		<div class="space"></div>
 		<h3>สูตรคูณแม่ {{number}}</h3>
-		<h4 v-for="i in 12">{{number}} * {{i}} = {{mul(i)}}</h4>
+		<h4 v-for="i in r">{{number}} * {{i}} = {{mul(i)}}</h4>
 	</div>
 
 	<script>
 		let app = new Vue({
 			el: '#app',
 			data: {
-				number: 2
+				number: 2,
+				row: 12
 			},
 			methods:{
 				mul: function(row){
@@ -26,6 +28,9 @@
 				}
 			},
 			computed: {
+				r: function(){
+					return parseInt(this.row)
+				},
 				x2: function(){
 					return this.number*2
 				},

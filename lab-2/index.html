@@ -8,6 +8,12 @@
 </head>
 <body>
 	<div id="app">
+		About
+		<h3>Username {{person.username}}</h3>
+		<h3>Name {{person.name}}</h3>
+		<h3>email {{person.email}}</h3>
+		<h3>website {{person.website}}</h3>
+		<h3>company {{person.company.name}}</h3>
 		<h2 v-for="u in users">{{u.username}}</h2>
 	</div>
 	
@@ -17,6 +23,7 @@
 		.then(response => response.json())
 		.then(json => {console.log(json)
 			app.users = json
+			app.person = json[0]
 		})
 		let app = new Vue({
 			el: '#app',

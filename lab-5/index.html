@@ -10,7 +10,7 @@
 	<div id="canvas">
 		<section id="canvas_header">
 			<div>
-				-- แสดงคะแนน
+				{{score}} คะแนน
 			</div>
 		</section>
 		<section id="canvas_main" 
@@ -21,7 +21,7 @@
 				:data-pst="i"></div>
 				<div class="box _toggle" data-pst="10" data-isrightarrow="1"></div>
 
-				<div class="box _fruit"></div>
+				<div class="box _fruit" v-for="f in fruits" :data-pst="f.pst" ></div>
 
 				<div class="box _origin"></div>
 				<div class="box _12" data-pst="12"></div>
@@ -55,13 +55,15 @@
 				time:0,
 				score:0,
 				fruits:[
-					{id:1,type:13,pst:6,run:true,step:1},
-					{id:2,type:11,pst:3,run:true,step:1},
-					{id:3,type:11,pst:2,run:true,step:1},
-					{id:4,type:13,pst:1,run:true,step:1},
+					{id:1,type:'red',pst:5,run:true,step:1},
+					{id:2,type:'yellow',pst:2,run:true,step:1},
 				]
 			}
 		})
+
+		let playing = setInterval(function(){
+			app.turn++
+		},speed)
 	</script>
 </body>
 </html>

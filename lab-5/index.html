@@ -45,19 +45,34 @@
 			return Math.floor(Math.random()*100%shift)+start
 		}
 		
-		let fruitCount = 5
+		let nextFruitId = 5
 		let isRightArrow = 1
 		let speed = 1000
 		let app = new Vue({
 			el:'#canvas',
 			data:{
+				isRightArrow: isRightArrow,
+				speed: speed,
 				play:true,
-				time:0,
+				turn:0,
 				score:0,
 				fruits:[
 					{id:1,type:'red',pst:5,run:true,step:1},
 					{id:2,type:'yellow',pst:2,run:true,step:1},
 				]
+			},
+			methods:{},
+			computed:{},
+			watch:{
+				turn: function (x){
+					let count = this.fruits.length
+					for(let f in this.fruits){
+						let run = this.fruits[f].run
+						if(run){
+							this.fruits[f].pst = this.fruits[f].pst+1
+						}
+					}
+				}
 			}
 		})
 
